@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <AppHeader></AppHeader>
+    <OverviewContainer :overviewItems="overviewItems"></OverviewContainer>
+    <OverviewTodayContainer :overviewTodayItems="overviewTodayItems"></OverviewTodayContainer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from './components/AppHeader.vue'
+import OverviewContainer from './components/OverviewContainer.vue'
+import OverviewTodayContainer from './components/OverviewTodayContainer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    AppHeader,
+    OverviewContainer,
+    OverviewTodayContainer
+  },
+  data() {
+      return {
+          overviewItems: [],
+          overviewTodayItems: []
+      }
+  },
+  mounted() {
+      this.fetchJsonData();
+  },
+  methods:{
+      async fetchJsonData() {
+        try {
+            const response = await fetch('/data/data.json');
+            const data = await response.json();
+
+            this.overviewItems = data.overview;
+            this.overviewTodayItems = data["overview-today"];
+
+        } catch (error) {
+            console.error('Error fetching JSON:', error);
+        }
+      }
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
