@@ -3,10 +3,10 @@
             
         <h2 class="text-2xl font-bold mb-[27px] text-Dark-Grayish-Blue-(Text) p-[27px]">Overview - Today</h2>
 
-        <div class="flex flex-wrap justify-around">
+        <div class="flex flex-wrap justify-around 2xl:2xl:place-content-start md:mx-[40px] 2xl:mx-[80px] 2xl:ml-[40px]">
             <div v-for="(item, index) in overviewTodayItems" :key="index">
-                <article class="bg-Light-Grayish-Blue-(Card-BG) dark:bg-Dark-Desaturated-Blue-(Card-BG) w-[326px] h-[125px] mb-4 rounded-[5px] mx-auto p-[27px] cursor-pointer hover:brightness-95 hover:dark:brightness-125">
-                    <div class="flex justify-between  items-center">
+                <article class="bg-Light-Grayish-Blue-(Card-BG) dark:bg-Dark-Desaturated-Blue-(Card-BG) w-[326px] h-[125px] mb-4 rounded-[5px] mx-auto p-[27px] cursor-pointer hover:brightness-95 hover:dark:brightness-125 2xl:mx-[40px]">
+                    <div class="flex justify-between items-center">
                         <p class="text-Dark-Grayish-Blue-(Text) dark:text-White-(Text)">{{ item.statsType }}</p>
                         <img :src="getImagePath(item.network)" :alt="`logo ${item.network}`" />
                     </div>

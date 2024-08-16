@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="max-w-[1440px] flex flex-wrap gap-[30px] place-content-center absolute top-[191px] left-0 right-0">
+        <section class="max-w-[2560px] flex flex-wrap gap-[30px] place-content-center 2xl:place-content-around 2xl:gap-[40px] absolute top-[191px] left-0 right-0">
             <div v-for="(item, index) in overviewItems" :key="index">
                 
                 <article class="bg-Light-Grayish-Blue-(Card-BG) dark:bg-Dark-Desaturated-Blue-(Card-BG) w-[326px] h-[216px] mb-8 rounded-[5px] mx-auto overflow-hidden text-center hover:brightness-95 cursor-pointer hover:dark:brightness-125">
